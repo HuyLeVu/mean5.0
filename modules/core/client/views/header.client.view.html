@@ -1,50 +1,237 @@
-<div class="container" ng-controller="HeaderController as vm">
-  <div class="navbar-header">
-    <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a ui-sref="home" class="navbar-brand">MEAN.JS</a>
-  </div>
-  <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
-    <ul class="nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
-      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-        <ul ng-switch-when="dropdown" class="dropdown-menu">
-          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
-            <a ui-sref="{{subitem.state}}({{subitem.params}})" ng-bind="subitem.title"></a>
-          </li>
-        </ul>
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">Sign Up</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Sign In</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
-      <li class="dropdown" uib-dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
-          <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
-            <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+<div ng-controller="HeaderController as vm">
+  <header class="clearfix header-cont newyear">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="container" style="position:relative">
+      <div class="row">
+        <div class="header-top clearfix">
+          <div class="logo header-top-1">
+            <div class="navbar-brand"> <a href="/" style="color: #fff;" target="_self">
+              <img class="logo img-responsive" src="https://www.cooky.vn/Content/img/cooky-slogan-white.68.png">
+            </a>
+            </div>
+
+          </div>
+          <div class="header-top-2">
+            <div id="cookySearchBox">
+              <div>
+                <form class="form-horizontal" action="/tim-kiem" method="get" novalidate="novalidate">
+                  <div class="qsearch-box">
+                    <input type="text" name="q" placeholder="tìm kiếm công thức">
+                    <button type="submit" class="glyphicon glyphicon-search ico-search"></button>
+                  </div>
+                  <!--<div style="display: none" class="search-suggest-panel">-->
+                    <!--<ul class="group">-->
+                      <!--<li>-->
+                        <!--<div class="left">Từ khóa</div>-->
+                        <!--<ul class="items">-->
+                          <!--<li>-->
+                            <!--<div ng-click="goSearchResults()">-->
+                              <!--<span class="textname ng-binding"></span>-->
+                              <!--<a ng-href="/cong-thuc?q=&amp;st=7" class="detail-link" href="/cong-thuc?q=&amp;st=7" target="_self">Xem tất cả</a>-->
+                            <!--</div>-->
+                          <!--</li>-->
+                        <!--</ul>-->
+                      <!--</li>-->
+                      <!--<li>-->
+                        <!--<div class="left">Công thức</div>-->
+                        <!--<ul class="items">-->
+                          <!--&lt;!&ndash; ngRepeat: item in items &ndash;&gt;-->
+                        <!--</ul>-->
+                      <!--</li>-->
+                    <!--</ul>-->
+
+                  <!--</div>-->
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="header-top-3">
+            <ul class="top-list">
+              <li>
+                <a href="/ung-dung-mobile?utm_source=Header&amp;utm_medium=TopMenu&amp;utm_campaign=Cooky+Mobile+App" target="_self">
+                  <span class="fa fa-mobile-phone"></span>
+                  <span class="sr-only">Ứng dụng nấu ăn ngon</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/cooky.vn" target="_blank" rel="nofollow">
+                  <span class="fa fa-facebook-square"></span>
+                  <span class="sr-only">Cooky Facebook Fage</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/cooky.vn/" target="_blank" rel="nofollow">
+                  <span class="fa fa-instagram"></span>
+                  <span class="sr-only">Cooky Instagram Fage</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/c/tvCooky" target="_blank" rel="nofollow">
+                  <span class="fa fa-youtube-square"></span>
+                  <span class="sr-only">Cooky TV Youtube Channel - Cooky.vn</span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar main-navbar clr-navbar">
+      <div class="container">
+        <!--<div class="navbar-header">-->
+          <!--<button type="button" class="navbar-toggle collapsed"  data-target="#bs-main-navbar-collapse-1">-->
+            <!--<span class="icon-bar"></span>-->
+          <!--</button>-->
+        <!--</div>-->
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="">
+              <a href="/" target="_self"><span class="glyphicon glyphicon-home"></span></a>
+            </li>
+            <li class="active">
+              <a href="/tim-kiem" target="_self">Công thức</a>
+            </li>
+
+            <li class="">
+              <a href="/blog" target="_self">Blog</a>
+            </li>
+
+            <li class="">
+              <a href="/bo-suu-tap" target="_self">Bộ sưu tập</a>
+            </li>
+            <li class="">
+              <a href="/video" target="_self">Videos</a>
+            </li>
+            <li class="menu-dropdown mega-menu-dropdown  mega-menu-full ">
+              <a href="/dia-diem" target="_self"><span class="fa fa-map-marker"></span> Địa điểm</a>
+            </li>
+            <li class="">
+              <a href="/san-pham" target="_self">Sản phẩm</a>
+            </li>
+            <li class="">
+              <a href="/thanh-vien" target="_self"><span class="fa fa-users"></span> Top đầu bếp</a>
+            </li>
+            <li class="">
+              <a href="/hoi-dap" target="_self"><span class="fa fa-comments-o"></span> Hỏi &amp; Đáp</a>
+            </li>
+            <li class="dropdown ">
+              <a class="dropdown-toggle" id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-bars"></span></a>
+              <ul class="dropdown-menu">
+
+                <li class="">
+                  <a href="/wiki"><span class="fa fa-book"></span> Wiki</a>
+                </li>
+                <li class="">
+                  <a href="/doi-thuong"> <span class="fa fa-gift"></span> Đổi thưởng</a>
+                </li>
+                <li class="">
+                  <a href="/su-kien"><span class="fa fa-calendar"></span> Sự kiện</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="language-box">
+                <div class="dropdown">
+                  <a class="dropdown-toggle" href="javascript:void(0)" rel="nofollow" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <img class="flag current img-responsive" src="https://www.cooky.vn/Content/img/icons/flags/VN.png" alt="vietnamese">
+
+                  </a>
+                  <ul class="dropdown-menu dropdown-lang" aria-labelledby="dropdownLanguage">
+                    <li><a href="/common/setlanguage?langid=1&amp;returnUrl=https://www.cooky.vn/" class="l-indicator"><img class="flag img-responsive" src="/Content/img/icons/flags/VN.png" alt="vietnamese"> Tiếng Việt</a></li>
+                    <li><a href="/common/setlanguage?langid=2&amp;returnUrl=https://www.cooky.vn/" class="l-indicator"><img class="flag img-responsive" src="/Content/img/icons/flags/USA.png" alt="english"> English</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div id="header-user-form" class="header-user-form">
+
+            <ul class="nomargin list-inline right-wrap navbar-right">
+              <li>
+                <a class="btn btn-quickmenu" title="Tạo công thức" href="/cong-thuc/tao-cong-thuc" target="_self">
+                  <span class="glyphicon glyphicon-plus text-highlight"></span> <span class="sr-only">Tạo công thức</span>
+                </a>
+              </li>
+
+              <li class="dropdown">
+                <a href="javascript:void(0);" id="myTabDrop1" class="dropdown-toggle btn btn-default" data-toggle="dropdown" target="_self">
+                  Đăng nhập <b class="caret"></b>
+                </a>
+                <!--<div class="dropdown-menu login-widget" role="menu" style="padding: 20px; right: 0px; top: 42px; border: 0;min-width:240px">-->
+                  <!--<form class="form-horizontal" style="width:260px" novalidate="novalidate">-->
+                    <!--<div class="login-social">-->
+                      <!--<div class="social-icon">-->
+                        <!--<ul class="list-unstyled">-->
+                          <!--<li class="fb wide"><a class="social-login" provider="1" href="javascript:void(0)" target="_self"><span class="child"></span><span>Đăng nhập với Facebook</span></a></li>-->
+                          <!--<li class="clearfix separator"></li>-->
+                          <!--<li class="gl"><a class="social-login" provider="2" href="javascript:void(0)" target="_self"></a></li>-->
+                          <!--<li class="yh"><a class="social-login" provider="3" href="javascript:void(0)" target="_self"></a></li>-->
+                          <!--<li class="tw"><a class="social-login" provider="5" href="javascript:void(0)" target="_self"></a></li>-->
+                          <!--<li class="in"><a class="social-login" provider="6" href="javascript:void(0)" target="_self"></a></li>-->
+                        <!--</ul>-->
+                      <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<fieldset>-->
+                      <!--<legend>hoặc với tài khoản Cooky</legend>-->
+                      <!--<div id="header-login-form">-->
+                        <!--<div class="form-group">-->
+                          <!--<input class="form-control" data-bind="value: email" type="text" name="Email" placeholder="Tài khoản hoặc Email">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                          <!--<input class="form-control" data-bind="value: password" type="password" name="Password" placeholder="Mật khẩu">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                          <!--<span style="color:red" data-bind="text: message"></span>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                          <!--<div class="pull-left">-->
+                            <!--<button type="submit" data-bind="enable:isvalid, click: submit" class="btn btn-sm btn-danger" disabled=""><span>Đăng nhập</span></button>-->
+                            <!--<img data-bind="visible: submitting" src="/Style/images/icons/small-loading.gif" style="display: none;">-->
+                          <!--</div>-->
+                          <!--<div class="pull-right">-->
+                            <!--<label>-->
+                              <!--<input type="checkbox" name="RememberMe" data-bind="checked: remember" style="float:left" checked=""> <span style="margin-top: 3px; display: block; float: left; margin-left: 4px;">Lưu đăng nhập</span>-->
+                            <!--</label>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group" style="text-align:center">-->
+                        <!--<ul class="list-unstyled">-->
+                          <!--<li>-->
+                            <!--<a href="/dang-ky" class="text-underline" title="Chưa có tài khoản" target="_self">Chưa có tài khoản</a>-->
+                          <!--</li>-->
+                          <!--<li>-->
+                            <!--<a href="/quen-mat-khau" class="text-underline" title="Quên mật khẩu?" target="_self">Quên mật khẩu?</a>-->
+                          <!--</li>-->
+                          <!--<li>-->
+                            <!--<a href="/gop-y" class="text-underline" title="Không nhận được mail kích hoạt?" target="_self">Không nhận được mail kích hoạt?</a>-->
+                          <!--</li>-->
+                        <!--</ul>-->
+                      <!--</div>-->
+                    <!--</fieldset>-->
+                  <!--</form>-->
+                <!--</div>-->
+              </li>
+
+            </ul>
+
+            <div id="update-profile-popup" style="display: none">
+            </div>
+            <div id="update-profile-popup-loading" style="display: none">
+              Đang tải ...
+            </div>
+            <div id="loginPopup" style="display: none">
+
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
 </div>

@@ -36,7 +36,7 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
   <section class="content">
     <section class="container">
       {{{block "content"}}}
@@ -65,7 +65,7 @@
 
   <!--Application JavaScript Files-->
     {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
-  
+
   <!--owasp config sync-->
   <script type="text/javascript">
     var sharedConfig = {{{ sharedConfig }}};
