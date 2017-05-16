@@ -104,7 +104,7 @@
               <a href="/video" target="_self">Videos</a>
             </li>
             <li class="menu-dropdown mega-menu-dropdown  mega-menu-full ">
-              <a href="/dia-diem" target="_self"><span class="fa fa-map-marker"></span> Địa điểm</a>
+              <a href="/dia-diem" target="_self"><span class="fa nav fa-map-marker"></span> Địa điểm</a>
             </li>
             <li class="">
               <a href="/san-pham" target="_self">Sản phẩm</a>
@@ -146,75 +146,15 @@
             </li>
           </ul>
           <div id="header-user-form" class="header-user-form">
-
-            <ul class="nomargin list-inline right-wrap navbar-right">
-              <li>
-                <a class="btn btn-quickmenu" title="Tạo công thức" href="/cong-thuc/tao-cong-thuc" target="_self">
-                  <span class="glyphicon glyphicon-plus text-highlight"></span> <span class="sr-only">Tạo công thức</span>
-                </a>
-              </li>
-
-              <li class="dropdown">
-                <a href="javascript:void(0);" id="myTabDrop1" class="dropdown-toggle btn btn-default" data-toggle="dropdown" target="_self">
-                  Đăng nhập <b class="caret"></b>
-                </a>
-                <!--<div class="dropdown-menu login-widget" role="menu" style="padding: 20px; right: 0px; top: 42px; border: 0;min-width:240px">-->
-                  <!--<form class="form-horizontal" style="width:260px" novalidate="novalidate">-->
-                    <!--<div class="login-social">-->
-                      <!--<div class="social-icon">-->
-                        <!--<ul class="list-unstyled">-->
-                          <!--<li class="fb wide"><a class="social-login" provider="1" href="javascript:void(0)" target="_self"><span class="child"></span><span>Đăng nhập với Facebook</span></a></li>-->
-                          <!--<li class="clearfix separator"></li>-->
-                          <!--<li class="gl"><a class="social-login" provider="2" href="javascript:void(0)" target="_self"></a></li>-->
-                          <!--<li class="yh"><a class="social-login" provider="3" href="javascript:void(0)" target="_self"></a></li>-->
-                          <!--<li class="tw"><a class="social-login" provider="5" href="javascript:void(0)" target="_self"></a></li>-->
-                          <!--<li class="in"><a class="social-login" provider="6" href="javascript:void(0)" target="_self"></a></li>-->
-                        <!--</ul>-->
-                      <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<fieldset>-->
-                      <!--<legend>hoặc với tài khoản Cooky</legend>-->
-                      <!--<div id="header-login-form">-->
-                        <!--<div class="form-group">-->
-                          <!--<input class="form-control" data-bind="value: email" type="text" name="Email" placeholder="Tài khoản hoặc Email">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                          <!--<input class="form-control" data-bind="value: password" type="password" name="Password" placeholder="Mật khẩu">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                          <!--<span style="color:red" data-bind="text: message"></span>-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                          <!--<div class="pull-left">-->
-                            <!--<button type="submit" data-bind="enable:isvalid, click: submit" class="btn btn-sm btn-danger" disabled=""><span>Đăng nhập</span></button>-->
-                            <!--<img data-bind="visible: submitting" src="/Style/images/icons/small-loading.gif" style="display: none;">-->
-                          <!--</div>-->
-                          <!--<div class="pull-right">-->
-                            <!--<label>-->
-                              <!--<input type="checkbox" name="RememberMe" data-bind="checked: remember" style="float:left" checked=""> <span style="margin-top: 3px; display: block; float: left; margin-left: 4px;">Lưu đăng nhập</span>-->
-                            <!--</label>-->
-                          <!--</div>-->
-                        <!--</div>-->
-                      <!--</div>-->
-                      <!--<div class="form-group" style="text-align:center">-->
-                        <!--<ul class="list-unstyled">-->
-                          <!--<li>-->
-                            <!--<a href="/dang-ky" class="text-underline" title="Chưa có tài khoản" target="_self">Chưa có tài khoản</a>-->
-                          <!--</li>-->
-                          <!--<li>-->
-                            <!--<a href="/quen-mat-khau" class="text-underline" title="Quên mật khẩu?" target="_self">Quên mật khẩu?</a>-->
-                          <!--</li>-->
-                          <!--<li>-->
-                            <!--<a href="/gop-y" class="text-underline" title="Không nhận được mail kích hoạt?" target="_self">Không nhận được mail kích hoạt?</a>-->
-                          <!--</li>-->
-                        <!--</ul>-->
-                      <!--</div>-->
-                    <!--</fieldset>-->
-                  <!--</form>-->
-                <!--</div>-->
-              </li>
-
+              <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
+                <li ui-sref-active="active">
+                  <a ui-sref="authentication.signup">Sign Up</a>
+                </li>
+                <li class="divider-vertical"></li>
+                <li ui-sref-active="active">
+                  <a ui-sref="authentication.signin">Sign In</a>
+                </li>
+              </ul>
             </ul>
 
             <div id="update-profile-popup" style="display: none">

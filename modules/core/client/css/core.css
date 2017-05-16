@@ -1,5 +1,5 @@
 .content {
-  margin-top: 50px;
+  margin-top: 140px;
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -205,7 +205,11 @@ header .main-navbar .navbar-nav li a:focus {
 	color: #fff !important;
 	border-radius: 4px;
 }
-
+header .main-navbar .navbar-nav li a:hover span.fa,
+header .main-navbar .navbar-nav>li.active a span.fa,
+header .main-navbar .navbar-nav li a:focus span.fa {
+	color: #fff;
+}
 .language-box .flag {
 	height: 20px;
 	float: left;
@@ -232,4 +236,111 @@ header .main-navbar .navbar-nav li a:focus {
 .right-wrap li>a.btn {
 	background-color: #fff;
 	padding: 6px 12px;
+}
+
+.featured-search {
+	padding: 15px 0;
+	position: relative;
+	height: 460px;
+}
+.title {
+	font-size: 18px;
+}
+div.title h1 {
+	color: #fff;
+	text-shadow: 2px 2px 8px rgba(0,0,0,.5);
+	padding-bottom: 15px;
+}
+div.title .center{
+	text-align: center;
+	margin: 0 auto;
+}
+.search-container {
+	border: 1px solid #fff;
+	background: #fff;
+	overflow: hidden;
+	position: relative;
+	padding: 8px;
+	opacity: .8;
+}
+.search-container span {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	display: block;
+	font-size: 20px;
+	color: #d43f3a;
+}
+.search-container input[type=text] {
+	max-width: 100%;
+	font-size: 16px;
+	height: 32px;
+	border: 0;
+	margin: 0;
+	padding-left: 36px;
+	box-shadow: none;
+}
+h1 {
+	font-size: 30px;
+}
+.carousel-caption {
+	position: absolute;
+	left: 0 !important;
+	bottom: 10px !important;
+}
+
+.carousel-caption .item-tip-1 {
+	background-color: #000;
+	padding: 10px 30px;
+	color: #fff;
+	opacity: .9;
+	font-size: 16px;
+	float: left;
+	box-shadow: 1px 2px 2px rgba(0,0,0,.2);
+	clear: both;
+}
+.carousel-caption .item-tip-2 {
+	margin-top: 4px;
+	background-color: #e53935;
+	padding: 5px 15px;
+	color: #fff;
+	opacity: .9;
+	font-size: 14px;
+	float: left;
+	box-shadow: 1px 2px 2px rgba(0,0,0,.2);
+	clear: both;
+}
+.carousel-caption .item-tip-1 a, .carousel-caption .item-tip-2 a {
+	color: #fff;
+}
+
+.carousel-indicators {
+	position: absolute;
+	left: 50%;
+	z-index: 15;
+	width: 60%;
+	padding-left: 0;
+	margin-left: -30%;
+	text-align: center;
+	list-style: none;
+}
+.carousel-indicators li {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0px 10px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #000 \9;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid #fff;
+	border-radius: 15px;
+}
+
+
+.carousel-indicators .active {
+	width: 15px;
+	height: 15px;
+	margin:  0px 10px;
+	background-color: #fff;
 }

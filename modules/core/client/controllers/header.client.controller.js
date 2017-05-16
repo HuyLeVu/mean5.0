@@ -17,6 +17,7 @@
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
 
+
     function stateChangeSuccess() {
       // Collapsing the menu after navigation
       vm.isCollapsed = false;
