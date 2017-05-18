@@ -8,7 +8,7 @@
           </a>
           <div class="item-tips">
             <div class="item-tip-1">
-              <a href="https://www.cooky.vn/cong-thuc/ca-phe-trung-19590?utm_source=Home&amp;utm_medium=Banner+Home&amp;utm_campaign=Cafe+Trứng">
+              <a href="#">
                 {{slide.tip1}}
               </a>
             </div>
@@ -313,5 +313,45 @@
         </div>
 
       </div>
+
+
+    <!-- Start back to top-->
+    <div class="bottom-toolbox">
+      <a class="back-to-top" style="color: #333"><i class="fa fa-angle-up fa-2x gototop"></i></a>
+      <a href="#" title="visit Cooky fanpage" target="_blank" class="ico-item">
+        <span class="ico ico-24 block ico-facebook ico-circle center"></span>
+      </a>
+      <a href="https://www.youtube.com/c/tvCooky" title="go to CookyTV Channel" target="_blank" class="ico-item">
+        <span class="ico ico-24 block ico-cooky-tv-logo-48 ico-circle center"></span>
+      </a>
+      <a href="https://www.instagram.com/cooky.vn/" title="view instagram" target="_blank" class="ico-item">
+        <span class="ico ico-24 block ico-instagram ico-circle center"></span>
+      </a>
+      <a href="https://www.messenger.com/t/cooky.vn" title="send a message" target="_blank" class="ico-item">
+        <span class="ico ico-24 block ico-cooky-logo ico-circle center">
+            <i class="_2pon _2poo"></i>
+        </span>
+      </a>
+    </div>
+    <!-- End back to top-->
   </div>
 </section>
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 10) {
+        $('.back-to-top').fadeIn();
+      } else {
+        $('.back-to-top').fadeOut();
+      }
+    });
+    //Click event to scroll to top
+    $('.back-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 100);
+      return false;
+    });
+  });
+</script>
+

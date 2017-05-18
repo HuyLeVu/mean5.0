@@ -409,5 +409,61 @@ h1 {
 	margin: 0 auto;
 	display: block;
 }
-
  /*end css for top-current-view-box*/
+
+
+
+/* Start CSS for div back-to-top*/
+.bottom-toolbox {
+	padding-bottom: 10px;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	cursor: pointer;
+	max-height: 190px;
+	width: 45px;
+	text-align: center;
+	background: rgba(203, 203, 203, 0.3);
+}
+.ico-item {
+	width: 45px;
+	display: block;
+	float: left;
+	margin: 0 auto;
+	padding: 8px 0 0 0;
+}
+.ico.ico-24 {
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+}
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+.ico-circle {
+	border-radius: 50%;
+}
+.ico {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: inherit;
+	backface-visibility: inherit;
+	background-color: transparent;
+}
+.ico-facebook {
+	background-image: url('https://www.cooky.vn/Content/img/icons/fb_icon_325x325.png');
+}
+.ico-cooky-tv-logo-48{
+	background-image:url("https://www.cooky.vn/Content/img/icons/CookyTVx48.png") ;
+}
+.ico-instagram{
+	background-image:url("https://www.cooky.vn/Content/img/icons/Instagram-v051916_200.png") ;
+}
+.ico-cooky-logo{
+	background-image:url("https://www.cooky.vn/Content/img/icons/cooky-logo-60.png") ;
+}
+.block {
+	display: block;
+}
+/*End CSS for div back-to-top*/
